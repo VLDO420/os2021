@@ -211,7 +211,8 @@ proc_pagetable(struct proc *p)
         uvmfree(pagetable, 0);
         return 0;
     }
-
+  return pagetable;
+}
 
 // Free a process's page table, and free the
 // physical memory it refers to.
