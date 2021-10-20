@@ -114,8 +114,7 @@ allocproc(void)
       release(&p->lock);
     }
   }
-   p->usyscall->pid = p->pid;
-   return p;
+   return 0;
 
 found:
   p->pid = allocpid();
@@ -164,6 +163,8 @@ freeproc(struct proc *p)
   if(p->pagetable)
     proc_freepagetable(p->pagetable, p->sz);
   p->pagetable = 0;
+  if(p->usyscall)
+    kfree((void*)p->usyscall);
   p->sz = 0;
   p->pid = 0;
   p->parent = 0;

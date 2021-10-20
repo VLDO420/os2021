@@ -263,7 +263,7 @@ uvmdealloc(pagetable_t pagetable, uint64 oldsz, uint64 newsz)
 void
 print_row(int level, int i, pte_t pte, uint64 child)
 {
-    for(int i = 0; i <= level; ++i){
+    for(int i = 0; i <= level; i++){
         printf(" ..");
     }
     printf("%d: pte %p pa %p\n",i,pte,child);
