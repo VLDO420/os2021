@@ -1,1 +1,8 @@
-aspondesatznakovnaspustenietestu
+1. Zrychlene mozu byt systemove, ktore vyuzivaju PID (id procesu), pretoze os sa nemusi prepinat medzi User a Kernel modom.
+
+2. vmprint() vypisuje tabulku stranok, spolu s fyzickymi adresami
+  Stranka 0 obsahuje kod init procesu
+  Tretia stranka od konca obsahuje usyscall
+  V strenke 2 sa nachadza stack procesu
+  namapovanu stranku 1 nemoze zapisat/precitat preoces v uzivatelskom mode, nema nastaveny priznak PTE_U
+
